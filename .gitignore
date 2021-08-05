@@ -1,3 +1,7 @@
 __pychache__
 fastapi-env
 .DS_Store
+Scripts/
+Lib/
+site/
+.vs/
