@@ -17,4 +17,12 @@ class Inventory(Base):
     __tablename__='inventory'
     id= Column(Integer,primary_key=True,index=True)
     count=Column(Integer)
+    total_issues=Column(Integer)
     
+
+class  PopularBooks(Base):
+    __tablename__='top_five_books_in_demand'
+    id=Column(Integer,primary_key=True,index=True)
+    book_id=Column(String)
+    book_name=Column(String)
+    total_issues=Column(String)

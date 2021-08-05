@@ -5,13 +5,14 @@ from sqlalchemy.orm import Session
 
 def create_book(request:schemas.Book,db:Session):
     new_book=models.Book(title=request.title)
-    new_row=models.Inventory(count=request.number)
+    new_inventory=models.Inventory(count=request.number)
+    new_inventory.total_issues=0
     db.add(new_book)
     db.commit()
     db.refresh(new_book)
-    db.add(new_row)
+    db.add(new_inventory)
     db.commit()
-    db.refresh(new_row)
+    db.refresh(new_inventory)
 
 
     return new_book
