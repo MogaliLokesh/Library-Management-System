@@ -6,11 +6,17 @@ Design and create backend of a small application of school library management sy
 
 ##start the application
 1.install all dependencies
+
 >pip install requirements.txt
+
 2.instialize virtual environment
+
 >.venv/Scripts/activate
+
 3.run the server
+
 >uvicorn main:app --reload
+
 4.open swagger ui on the browser(go to the link http://localhost:8000/docs)
 
 ##table structures
