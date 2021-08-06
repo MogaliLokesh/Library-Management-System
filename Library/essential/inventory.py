@@ -10,7 +10,7 @@ def top_five_books_in_demand(response:Response,db:Session):
     #sorting inventory in descending order based on number of issues
     ans=inventory.order_by(models.Inventory.total_issues.desc()).limit(5).all()
     print(ans[0].id)
-    #if entries already esits in top_five_books_in_demand table delete them all.
+    #if entries already exits in top_five_books_in_demand table delete them all.
     popular_book=db.query(models.PopularBooks)
     if popular_book:
         popular_book.delete()
