@@ -51,7 +51,7 @@ top_five_books_in_demand
 
  ##Folder structure of the project  
  
-	 Library
+	 -Library
 		
 		-__pycache__
 		-essential(contains .py that defines methods that defines what an api does )
@@ -69,6 +69,6 @@ top_five_books_in_demand
 		-models.py
 		-schemas.py
 		-database.py
-		-README.md
-		-.gitignore
-            -book.db
+	-README.md
+	-.gitignore
+        -book.db
