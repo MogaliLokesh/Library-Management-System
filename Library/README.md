@@ -18,6 +18,7 @@ Design and create backend of a small application of school library management sy
 Book
 
 |id |name |
+
 -id(integer) is the primary key and id of the book
 -name(String) is the name of the book
 
