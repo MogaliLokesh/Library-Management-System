@@ -5,3 +5,9 @@ Scripts/
 Lib/
 site/
 .vs/
+app/
+.deta/
+lib/
+include/
+
+
