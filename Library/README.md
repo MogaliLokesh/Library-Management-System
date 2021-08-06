@@ -33,6 +33,7 @@ User
 Inventory
 
 |id |count |total_issues |
+
 -id(integer) is the primary key and id of the book(example if id of a book is 1 then the count of copies in inventory is value in count column corresponding to id==1)
 -count(integer) is the no of copies of any book
 -total_issues(integer) is no of times a book was issues totally.
