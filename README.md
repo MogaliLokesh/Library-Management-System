@@ -1,10 +1,13 @@
 # LibratyManagementSystem
+
 ##Objective
+
 Design and create backend of a small application of school library management system.
 
-##Folder Structure
+
 
 ##start the application
+
 1.install all dependencies
 
 >pip install requirements.txt
@@ -26,6 +29,7 @@ Book
 |id |name |
 
 -id(integer) is the primary key and id of the book
+
 -name(String) is the name of the book
 
 User
@@ -33,15 +37,20 @@ User
 |id |name |books_in_hand |
 
 -id(integer) is the primary key and id of the user
+
 -name(String) is the name of the user
+
 -books_in_hand(integer) is the no of books a person posses at a point of time
 
 Inventory
 
 |id |count |total_issues |
 
+
 -id(integer) is the primary key and id of the book(example if id of a book is 1 then the count of copies in inventory is value in count column corresponding to id==1)
+
 -count(integer) is the no of copies of any book
+
 -total_issues(integer) is no of times a book was issues totally.
 
 
@@ -50,8 +59,11 @@ top_five_books_in_demand
 |id |book_id |book_name |total_issues |
 
 -id(integer) is the primary
+
 -book_id(integer) is the id of the book
+
 -book_name(string) is the name of the book
+
 -total_issues(integer) is the total no of times a book was issues 
 
 
