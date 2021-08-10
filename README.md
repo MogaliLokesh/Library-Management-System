@@ -10,7 +10,7 @@ Design and create backend of a small application of school library management sy
 
 1.install all dependencies
 
->pip install requirements.txt
+>pip install -r requirements.txt
 
 2.instialize virtual environment
 
@@ -18,7 +18,7 @@ Design and create backend of a small application of school library management sy
 
 3.run the server
 
->uvicorn main:app --reload
+>uvicorn Library.main:app --reload
 
 4.open swagger ui on the browser(go to the link http://localhost:8000/docs)
 
@@ -71,14 +71,11 @@ top_five_books_in_demand
  
 	-Library
 		
-		-__pycache__
 		-essential(contains .py that defines methods that defines what an api does )
-			-__pycache__
 			-book.py
 			-inventory.py
 			-user.py
 		-routers(contains .py files which will handle get and post requests for  the APIs )
-			-__pycache__
 			-book.py
 			-inventory.py
 			-user.py
@@ -88,6 +85,6 @@ top_five_books_in_demand
 		-schemas.py
 		-database.py
 	-README.md
-	-requireents.txt
+	-requirements.txt
 	-.gitignore
     -book.db

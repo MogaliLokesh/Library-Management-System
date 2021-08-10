@@ -9,5 +9,5 @@ app/
 .deta/
 lib/
 include/
-
+__pycache__
 
