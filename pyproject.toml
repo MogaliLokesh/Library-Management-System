@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "LibraryManagementSystem"
+version = "0.1.0"
+description = ""
+authors = ["MogaliLokesh <lokeshmogaliofficial@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+SQLAlchemy = "^1.4.22"
+fastapi = "^0.68.0"
+uvicorn = "^0.14.0"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.9.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
