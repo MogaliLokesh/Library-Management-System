@@ -3,17 +3,21 @@ from ..import schemas,database,models
 from sqlalchemy.orm import Session
 from ..essential import book
 
+
 ##function that gives top 5 books in demand in a separate table
 def top_five_books_in_demand(response:Response,db:Session):
     book = db.query(models.Book)
     inventory = db.query(models.Inventory)
+    
     #sorting inventory in descending order based on number of issues
     ans = inventory.order_by(models.Inventory.total_issues.desc()).limit(5).all()
+    
     #if entries already esits in top_five_books_in_demand table delete them
     #all.
     popular_book = db.query(models.PopularBooks)
     if popular_book:
         popular_book.delete()
+    
     #add each row of sorted inventory table into table with details such as
     #book id, book name, total issues.
     for an in ans:
@@ -24,6 +28,11 @@ def top_five_books_in_demand(response:Response,db:Session):
         db.refresh(new_row)
     popular_books = db.query(models.PopularBooks).all()
     return popular_books
+
+#method to get all existing books
+def get_inventory(db:Session):
+    inventory = db.query(models.Inventory).all()
+    return inventory
         
 
     
