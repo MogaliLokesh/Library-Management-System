@@ -1,4 +1,3 @@
-__pychache__
 fastapi-env
 .DS_Store
 Scripts/
@@ -9,5 +8,5 @@ app/
 .deta/
 lib/
 include/
-__pycache__
+
 

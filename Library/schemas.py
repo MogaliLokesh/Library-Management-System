@@ -1,5 +1,6 @@
  
 from pydantic import BaseModel
+
 # defining pydantic schemas for book,user and inventory
 class Book(BaseModel):
     title :str
