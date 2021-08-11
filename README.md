@@ -10,7 +10,7 @@ Design and create backend of a small application of school library management sy
 
 1.install all dependencies
 
->pip install -r requirements.txt
+>poetry install
 
 2.instialize virtual environment
 
