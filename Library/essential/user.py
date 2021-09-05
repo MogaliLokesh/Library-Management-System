@@ -2,7 +2,7 @@ from fastapi import FastAPI,Depends,status,Response,HTTPException
 from .. import schemas,models
 from sqlalchemy.orm import Session
 from ..essential import book
-
+from sqlalchemy import and_
 #importing get_book method
 get_book = book.get_book
 
@@ -41,7 +41,14 @@ def issue_book(name:str,book_id:int,response:Response,db:Session):
     if user.books_in_hand == 3:
         raise HTTPException(status_code=404,
                             detail=f'user already posses maximum number of books')
-   
+    entry = db.query(models.AssociationUserBooks).filter(and_(models.AssociationUserBooks.book_id == book.id,models.AssociationUserBooks.user_name == user.name)).first()
+    if not entry:
+        new_entry = models.AssociationUserBooks(user_name=user.name,book_id=book.id)
+        db.add(new_entry)
+        #print(new_entry)
+    else:
+        entry.copies_in_hand = entry.copies_in_hand + 1
+    
     inventory.count = inventory.count - 1
     #print(inventory.id)
     inventory.total_issues = inventory.total_issues + 1
@@ -54,6 +61,11 @@ def return_book(name:str,book_id:int,response:Response,db:Session):
     user = get_user(name,response,db)
     book = get_book(book_id,response,db)
     inventory = db.query(models.Inventory).filter(models.Inventory.id == book_id).first()
+    entry = db.query(models.AssociationUserBooks).filter(and_(models.AssociationUserBooks.book_id == book.id,models.AssociationUserBooks.user_name == user.name)).first()
+    if not entry or entry.copies_in_hand == 0:
+        raise HTTPException(status_code=404,
+                            detail=f'user does not posses any copies of this book currently')
+    entry.copies_in_hand = entry.copies_in_hand - 1
     inventory.count = inventory.count + 1
     user.books_in_hand = user.books_in_hand - 1
     db.commit()

@@ -1,5 +1,5 @@
 from .database import Base
-from sqlalchemy import Column,Integer,String
+from sqlalchemy import Column,Integer,String,ForeignKey
 
 #sqlalchemy models for book,user,inventory and popular books tables.
 class Book(Base):
@@ -27,3 +27,11 @@ class  PopularBooks(Base):
     book_id = Column(String)
     book_name = Column(String)
     total_issues = Column(String)
+
+
+class AssociationUserBooks(Base):
+    __tablename__ = 'Association_User_Books'
+    id = Column(Integer,primary_key=True,index=True)
+    user_name = Column(String,ForeignKey("users.name"))
+    book_id = Column(String,ForeignKey("books.id"))
+    copies_in_hand = Column(Integer,default=1)
