@@ -45,12 +45,12 @@ def issue_book(name:str,book_id:int,response:Response,db:Session):
     if not entry:
         new_entry = models.AssociationUserBooks(user_name=user.name,book_id=book.id)
         db.add(new_entry)
-        #print(new_entry)
+        
     else:
         entry.copies_in_hand = entry.copies_in_hand + 1
     
     inventory.count = inventory.count - 1
-    #print(inventory.id)
+    
     inventory.total_issues = inventory.total_issues + 1
     user.books_in_hand = user.books_in_hand + 1
     db.commit()
